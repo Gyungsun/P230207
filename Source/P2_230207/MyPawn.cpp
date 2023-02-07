@@ -5,6 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Components/ArrowComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/FloatingPawnMovement.h"
 
@@ -19,6 +20,12 @@ AMyPawn::AMyPawn()
 
 	Body = CreateDefaultSubobject< UStaticMeshComponent>(TEXT("Body"));
 	Body->SetupAttachment(Box);
+	static ConstructorHelpers::FObjectFinder = SM_Body(TEXT("/Script/Engine.StaticMesh'/Game/P38/Meshes/SM_P38_Body.SM_P38_Body'"));
+	if (SM_Body.Succeeded)
+	{
+		Body->Setup
+	}
+
 	
 	Left = CreateDefaultSubobject< UStaticMeshComponent>(TEXT("Left"));
 	Left->SetupAttachment(Body);
@@ -26,11 +33,16 @@ AMyPawn::AMyPawn()
 	Right = CreateDefaultSubobject< UStaticMeshComponent>(TEXT("Right"));
 	Right->SetupAttachment(Body);
 
+	static ConstructorHelpers::FOjectFinder
+
 	SpringArm = CreateDefaultSubobject< USpringArmComponent>(TEXT("SpringArm"));
 	SpringArm->SetupAttachment(Box);
 
 	Camera = CreateDefaultSubobject< UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm);
+
+	Arrow = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow"));
+	Arrow->SetupAttachment(Box);
 
 	Movement = CreateDefaultSubobject< UFloatingPawnMovement>(TEXT("Movement"));
 
