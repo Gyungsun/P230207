@@ -42,4 +42,12 @@ public:
 
 	UStaticMeshComponent* Right;
 
+	USpringArmComponent* SpringArm;
+
+	UCameraComponent* Camera;
+	
+	UFloatingPawnComponent* Movement;
+
+
+
 };

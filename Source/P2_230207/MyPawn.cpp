@@ -4,6 +4,9 @@
 #include "MyPawn.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework/PawnMovementComponent.h"
 
 
 // Sets default values
@@ -23,6 +26,15 @@ AMyPawn::AMyPawn()
 
 	Right = CreateDefaultSubobject< UStaticMeshComponent>(TEXT("Right"));
 	Right->SetupAttachment(Body);
+
+	SpringArm = CreateDefaultSubobject< USpringArmComponent>(TEXT("SpringArm"));
+	SpringArm->SetupAttachment(Box);
+
+	Camera = CreateDefaultSubobject< UCameraComponent>(TEXT("Camera"));
+	Camera->SetupAttachment(SpringArm);
+
+	Movement = CreateDefaultSubobject< UFloatingPawnComponent>(TEXT("Movement"));
+
 
 }
 
